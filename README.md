@@ -1,3 +1,13 @@
+
+# 📦 Return and Refund Assistant
+
+🚀 **[Live Demo](https://shopeasy-return-refund.streamlit.app/)**
+
+💻 **[GitHub Repository](https://github.com/varshentech/return-refund-assistant-official-)**
+
+An AI-powered e-commerce customer support application built using Python, Streamlit, LangChain, ChromaDB, Gemini Embeddings, and Groq (GPT-OSS 20B).
+
+
 # Return and Refund Assistant
 
 **Project ID:** PRJ-121  
