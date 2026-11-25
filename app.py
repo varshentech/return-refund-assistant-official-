@@ -6,7 +6,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import streamlit as st
-from rag_engine import retrieve_policy
+from rag_engine import ask_policy
 
 
 # ----------------------------- PROJECT PATHS -----------------------------
@@ -212,9 +212,10 @@ if page == "AI Policy Assistant":
     )
 
     st.info(
-        "This assistant uses LangChain and ChromaDB "
-        "to retrieve relevant information from the policy document "
-        "through semantic search."
+        "This AI assistant uses LangChain, ChromaDB and "
+        "Gemini to understand customer questions, retrieve "
+        "relevant policy information and generate "
+        "customer-friendly answers."
     )
 
     q = st.text_input(
@@ -222,19 +223,19 @@ if page == "AI Policy Assistant":
         placeholder="Example: How many days do I have to return a product?"
     )
 
-    if st.button("Find Answer", type="primary"):
+    if st.button("Ask AI Assistant", type="primary"):
 
         if q.strip():
 
             try:
                 with st.spinner(
-                    "Searching the return policy..."
+                    "AI assistant is analyzing your question..."
                 ):
 
-                    result = retrieve_policy(q)
+                    result = ask_policy(q)
 
                 st.markdown(
-                    "#### Retrieved policy information"
+                    "#### 🤖 AI Assistant Response"
                 )
 
                 st.write(result["answer"])
@@ -247,7 +248,7 @@ if page == "AI Policy Assistant":
             except Exception as e:
 
                 st.error(
-                    f"Policy retrieval failed: {e}"
+                    f"Unable to generate an AI response: {e}"
                 )
 
         else:
